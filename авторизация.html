@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Аренда авто — Вход</title>
+    <style>
+        body {
+            background: #f4f6fa;
+            font-family: 'Segoe UI', Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 420px;
+            margin: 40px auto;
+            background: #fff;
+            border-radius: 16px;
+            box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+            padding: 32px 28px;
+        }
+
+        h2 {
+            margin-top: 0;
+            color: #284e91;
+            font-weight: 600;
+            letter-spacing: 1px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 6px;
+            font-size: 15px;
+            color: #333;
+        }
+
+        input, select {
+            width: 100%;
+            padding: 10px 12px;
+            margin-bottom: 18px;
+            border: 1px solid #dbe2ef;
+            border-radius: 8px;
+            font-size: 15px;
+            background: #f7fafc;
+            transition: border 0.2s;
+        }
+
+            input:focus, select:focus {
+                border-color: #284e91;
+                outline: none;
+            }
+
+        button {
+            background: #284e91;
+            color: #fff;
+            border: none;
+            padding: 12px 0;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 500;
+            cursor: pointer;
+            width: 100%;
+            margin-bottom: 10px;
+            transition: background 0.2s;
+        }
+
+            button:hover {
+                background: #1c3766;
+            }
+
+        .admin-panel {
+            margin-top: 32px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 18px;
+        }
+
+        th, td {
+            padding: 10px 6px;
+            text-align: left;
+        }
+
+        th {
+            background: #e3eaf4;
+            color: #284e91;
+            font-weight: 600;
+        }
+
+        tr:nth-child(even) {
+            background: #f7fafc;
+        }
+
+        .actions button {
+            padding: 6px 10px;
+            font-size: 14px;
+            margin-right: 4px;
+            border-radius: 6px;
+            background: #e3eaf4;
+            color: #284e91;
+        }
+
+            .actions button:hover {
+                background: #c6d4ec;
+            }
+
+        .logout {
+            margin-top: 24px;
+            text-align: right;
+        }
+
+            .logout button {
+                background: #e57373;
+                color: #fff;
+                width: auto;
+                padding: 8px 18px;
+            }
+
+        .test-login {
+            margin-bottom: 18px;
+            text-align: right;
+        }
+
+            .test-login button {
+                background: #ffd54f;
+                color: #333;
+                width: auto;
+                padding: 8px 18px;
+            }
+
+        @media (max-width: 600px) {
+            .container {
+                padding: 18px 8px;
+            }
+
+            th, td {
+                font-size: 13px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Вход</h2>
+        <form>
+            <label for="login">Логин:</label>
+            <input id="login" type="text" name="login" autocomplete="username">
+
+            <label for="password">Пароль:</label>
+            <input id="password" type="password" name="password" autocomplete="current-password">
+
+            <button type="submit">Войти</button>
+        </form>
+        <div class="test-login">
+            <button type="button">Войти как админ (тест)</button>
+        </div>
+
+        <h2>Смена пароля</h2>
+        <form>
+            <label for="old-pass">Текущий пароль:</label>
+            <input id="old-pass" type="password" name="old-pass" autocomplete="current-password">
+
+            <label for="new-pass">Новый пароль:</label>
+            <input id="new-pass" type="password" name="new-pass" autocomplete="new-password">
+
+            <label for="confirm-pass">Подтверждение нового пароля:</label>
+            <input id="confirm-pass" type="password" name="confirm-pass" autocomplete="new-password">
+
+            <button type="submit">Обновить пароль</button>
+        </form>
+
+        <div class="admin-panel">
+            <h2>Пользователи системы</h2>
+            <table>
+                <tr>
+                    <th>Логин</th>
+                    <th>Роль</th>
+                    <th>Заблокирован</th>
+                    <th>Действия</th>
+                </tr>
+                <tr>
+                    <td>admin</td>
+                    <td>Администратор</td>
+                    <td>false</td>
+                    <td class="actions">
+                        <button>Заблокировать/Разблокировать</button>
+                        <button>Удалить</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>user1</td>
+                    <td>Пользователь</td>
+                    <td>false</td>
+                    <td class="actions">
+                        <button>Заблокировать/Разблокировать</button>
+                        <button>Удалить</button>
+                    </td>
+                </tr>
+            </table>
+
+            <form style="margin-top:18px;">
+                <label for="new-user-login">Добавить нового пользователя</label>
+                <input id="new-user-login" type="text" name="new-user-login" placeholder="Логин">
+
+                <label for="new-user-role">Роль:</label>
+                <select id="new-user-role" name="new-user-role">
+                    <option>Пользователь</option>
+                    <option>Администратор</option>
+                </select>
+                <button type="submit">Добавить пользователя</button>
+            </form>
+        </div>
+
+        <div class="logout">
+            <button type="button">Выйти из системы (тест)</button>
+        </div>
+    </div>
+</body>
+</html>
